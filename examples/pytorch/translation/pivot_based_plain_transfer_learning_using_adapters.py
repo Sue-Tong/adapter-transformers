@@ -418,7 +418,7 @@ def main():
             )
             # load a pre-trained from Hub if specified
             if adapter_args.load_adapter:
-                pivot_based_plain_transfer_learning_using_adapters = adapter_args.load_adapter.split("-")
+                pivot_based_plain_transfer_learning_using_adapters = adapter_args.load_adapter.split("@")
                 if pivot_based_plain_transfer_learning_using_adapters[
                     0] == "pivot_based_plain_transfer_learning_using_adapters":
                     selected_adapters = pivot_based_plain_transfer_learning_using_adapters[1][1:-1].split(",")
