@@ -47,6 +47,7 @@ from transformers import (
     Seq2SeqAdapterTrainer,
     Seq2SeqTrainer,
     Seq2SeqTrainingArguments,
+    AutoAdapterModel,
     default_data_collator,
     set_seed,
 )
