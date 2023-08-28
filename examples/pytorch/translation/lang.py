@@ -410,7 +410,7 @@ def main():
         # check if adapter already exists, otherwise add it
         if task_name not in model.config.adapters:
             # resolve the adapter config
-            adapter_config = AdapterConfig.load(
+            adapter_config = AdapterConfig.AdapterConfig.load(
                 adapter_args.adapter_config,
                 non_linearity=adapter_args.adapter_non_linearity,
                 reduction_factor=adapter_args.adapter_reduction_factor,
