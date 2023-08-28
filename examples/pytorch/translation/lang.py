@@ -424,11 +424,7 @@ def main():
                     selected_adapter_for_the_encoder = selected_adapters[0]
                     selected_adapter_for_the_decoder = selected_adapters[1]
                     task_name += "_using_" + selected_adapter_for_the_encoder[-5:] + "&" + selected_adapter_for_the_decoder[-5:]
-                    if selected_adapter_for_the_encoder == '':
-                        model.add_adapter(task_name, config=adapter_config,
-                                        leave_out=[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
-                                        load_as=selected_adapter_for_the_encoder[-5:])
-                    else:
+                    if selected_adapter_for_the_encoder != '':
                         model.load_adapter(selected_adapter_for_the_encoder, config=adapter_config,
                                         leave_out=[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
                                         load_as=selected_adapter_for_the_encoder[-5:])
