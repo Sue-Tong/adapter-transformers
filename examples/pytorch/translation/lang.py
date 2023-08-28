@@ -410,7 +410,7 @@ def main():
         # check if adapter already exists, otherwise add it
         if task_name not in model.config.adapters:
             # resolve the adapter config
-            adapter_config = AdapterConfig.AdapterConfig.load(
+            adapter_config = AdapterConfig.load(
                 adapter_args.adapter_config,
                 non_linearity=adapter_args.adapter_non_linearity,
                 reduction_factor=adapter_args.adapter_reduction_factor,
@@ -418,11 +418,11 @@ def main():
             # load a pre-trained from Hub if specified
             if adapter_args.load_adapter:
                 pivot_based_plain_transfer_learning_using_adapters = adapter_args.load_adapter.split("-", 1)
-                if pivot_based_plain_transfer_learning_using_adapters[0] == \
-                        "pivot_based_plain_transfer_learning_using_adapters":
+                if pivot_based_plain_transfer_learning_using_adapters[0] == "pivot_based_plain_transfer_learning_using_adapters":
                     selected_adapters = pivot_based_plain_transfer_learning_using_adapters[1][1:-1].split(",")
                     selected_adapter_for_the_encoder = selected_adapters[0]
                     selected_adapter_for_the_decoder = selected_adapters[1]
+                    print(selected_adapter_for_the_decoder )
                     task_name += "_using_" + selected_adapter_for_the_encoder[-5:] + "&" + selected_adapter_for_the_decoder[-5:]
                     if selected_adapter_for_the_encoder != '':
                         model.load_adapter(selected_adapter_for_the_encoder, config=adapter_config,
