@@ -428,10 +428,10 @@ def main():
                         model.load_adapter(selected_adapter_for_the_encoder, config=adapter_config,
                                         leave_out=[12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
                                         load_as=selected_adapter_for_the_encoder[-5:])
-                        
-                    model.load_adapter(selected_adapter_for_the_decoder, config=adapter_config,
-                                    leave_out=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-                                    load_as=selected_adapter_for_the_decoder[-5:])
+                    if selected_adapter_for_the_decoder != '':    
+                        model.load_adapter(selected_adapter_for_the_decoder, config=adapter_config,
+                                        leave_out=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                                        load_as=selected_adapter_for_the_decoder[-5:])
                     model.train_adapter([selected_adapter_for_the_encoder[-5:], selected_adapter_for_the_decoder[-5:]])
                     model.set_active_adapters(
                         [selected_adapter_for_the_encoder[-5:], selected_adapter_for_the_decoder[-5:]])
