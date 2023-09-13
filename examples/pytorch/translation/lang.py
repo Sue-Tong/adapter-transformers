@@ -389,8 +389,7 @@ def main():
         config=config,
         cache_dir=model_args.cache_dir,
         revision=model_args.model_revision,
-        use_auth_token=True if model_args.use_auth_token else None,
-        model_args.model_name_or_path
+        use_auth_token=True if model_args.use_auth_token else None
     )
 
     model.resize_token_embeddings(len(tokenizer))
