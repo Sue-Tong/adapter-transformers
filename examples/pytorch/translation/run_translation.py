@@ -409,7 +409,7 @@ def main():
     if adapter_args.train_adapter:
         task_name = data_args.source_lang.split("_")[0] + "_" + data_args.target_lang.split("_")[0]
         # check if adapter already exists, otherwise add it
-        if task_name not in model.config.adapters:
+        if task_name:
             # resolve the adapter config
             adapter_config = AdapterConfig.load(
                 adapter_args.adapter_config,
